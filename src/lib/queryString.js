@@ -10,6 +10,20 @@ module.exports.queryString = obj =>
     .map(KeyValueToString)
     .join('$');
 
+module.exports.parse = string =>
+  Object.fromEntries(
+    string.split('&').map(item => {
+      let [key, value] = item.split('=')
+
+      if(value.indexOf(',') > -1){
+        value = value.split(',')
+      }
+      return [key, value]
+    }
+  
+  ));  
+
+
 ///////////////////////////1 Condigo antes da refatoração
 //{
 //   console.log(Object.entries(obj));
