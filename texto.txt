@@ -1,0 +1,7 @@
+#iniciar um projeto javascript
+npm init -y
+
+#instalar dependencias de teste como jest
+npm i jest --save-dev
+npm i @types/jest
+
