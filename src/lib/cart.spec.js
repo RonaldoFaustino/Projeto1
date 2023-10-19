@@ -19,7 +19,7 @@ describe('Cart', () =>{
 
     describe('getTotal()', () =>{
         it('should return 0 when getTotal() is executed in a newly created in instacia', () => {
-            expect(cart.getTotal()).toEqual(0)
+            expect(cart.getTotal().getAmount()).toEqual(0)
         })
     
         it('should multiply quantity an price and receive the total amount', () =>{
@@ -30,7 +30,7 @@ describe('Cart', () =>{
     
             cart.add(item)
     
-            expect(cart.getTotal()).toEqual(70776)
+            expect(cart.getTotal().getAmount()).toEqual(70776)
         })
     
         it('should ensure no more than on product exist at time', () =>{
@@ -44,7 +44,7 @@ describe('Cart', () =>{
                 quantity:1
             })
     
-            expect(cart.getTotal()).toEqual(35388)
+            expect(cart.getTotal().getAmount()).toEqual(35388)
     
         })
     
@@ -60,7 +60,7 @@ describe('Cart', () =>{
             })        
             cart.remove(product)
     
-            expect(cart.getTotal()).toEqual(10000);
+            expect(cart.getTotal().getAmount()).toEqual(10000);
         })
     })
 
@@ -91,7 +91,7 @@ describe('Cart', () =>{
             })
 
             expect(cart.sumary()).toMatchSnapshot();
-            expect(cart.getTotal()).toBeGreaterThan(0)
+            expect(cart.getTotal().getAmount()).toBeGreaterThan(0)
         })
 
         it('should reset the cart when chackout() is called', () => {
@@ -102,7 +102,7 @@ describe('Cart', () =>{
     
             cart.checkout();
     
-            expect(cart.getTotal()).toEqual(0);
+            expect(cart.getTotal().getAmount()).toEqual(0);
         })
     })
 
