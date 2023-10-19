@@ -5,3 +5,6 @@ npm init -y
 npm i jest --save-dev
 npm i @types/jest
 
+#instalar e configurar babel
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+
